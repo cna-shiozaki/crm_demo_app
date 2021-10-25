@@ -1,0 +1,37 @@
+use cnaciri_demo
+db.Activities.drop();
+db.Activities.insert({"Id":"1002","Type":"Appel Sortant","Description":"Appeler Henri","Motif":"Beverages","Statut":"AFAI","Note":"Dieu ordonne à l’ange Gabriel de se rendre à Tortose. Bouillon assemble les chefs de l’armée chrétienne. Tous, d’une commune voix, le nomment leur général. Godefroi fait ensuite défiler l’armée en sa présence, et elle se met en marche vers Solime. Cette nouvelle jette l’effroi dans le cœur du roi de la Palestine."});
+db.Activities.insert({"Id":"1002","Type":"Appel Sortant","Description":"Fermer dossier #2121","Motif":"Grains/Cereals","Statut":"AFAI","Note":"JE chante les pieux combats et le grand capitaine qui délivra le tombeau sacré du Christ !"});
+db.Activities.insert({"Id":"1003","Type":"Visite","Description":"Visite Client DALMONT","Motif":"Meat/Poultry","Statut":"ENCO"});
+db.Activities.insert({"Id":"1004","Type":"Investigation","Description":"Résoudre bug","Motif":"Produce","Statut":"FAIT"});
+db.Activities.insert({"Id":"1005","Type":"Email Sortant","Description":"Documenter la solution technique appropriée","Motif":"Seafood","Statut":"AFAI","Note":"De nombreux stravaux signalèrent sa prudence et son courage, et, pour accomplir sa glorieuse conquête, il supporta de cruelles souffrances."});
+db.Activities.insert({"Id":"1006","Type":"Email Sortant","Description":"Poster sur facebook","Motif":"Condiments","Statut":"FAIT"});
+db.Activities.insert({"Id":"1007","Type":"Investigation","Description":"Remonter un compte github","Motif":"Dairy Products","Statut":"FAIT"});
+db.Activities.insert({"Id":"1008","Type":"Email Sortant","Description":"Faire un blog avec eleventy","Motif":"Confections","Statut":"FAIT"});
+db.Activities.insert({"Id":"1010","Type":"Investigation","Description":"Lire roman","Motif":"Autre","Statut":"FAIT"});
+db.Activities.insert({"Id":"1011","Type":"Visite","Description":"Visite Usine Panneaux Solaires","Motif":"Contrat Client","Note":"The OData V4 model is primarily designed for OData V4 services. Nevertheless, OData V2 services may be used through an adapter as well. For more information see: Consuming OData V2 Services with the OData V4 Model. That's great !","Statut":"AFAI"});
+db.Activities.insert({"Id":"1012","Type":"Appel Sortant","Description":"Chick-fil-A","Motif":"Appel restaurant","Note":"Pas si important","Statut":"AFAI"});
+db.Activities.insert({"Id":"1013","Type":"Appel Sortant","Description":"Prendre contact avec R.Harris","Motif":"Prolongement Contrat","Note":"I alone cannot change the world, but I can cast a stone across the water to create many ripples...!","Statut":"AFAI"});
+db.Activities.insert({"Id":"1014","Type":"Tâche à Faire","Description":"Débugger le RTE 2","Motif":"Maintenance Applicative","Note":"Comprendre le RichTextEditor; et proposer une solution.","Statut":"AFAI"});
+
+db.Partakers.drop();
+db.Partakers.insert({"ActivityId":"1001","UserId":"cnaciri","UserFullName":"Christophe NACIRI","PartakerFunction":"Créateur"});
+db.Partakers.insert({"ActivityId":"1001","UserId":"cnaciri2","UserFullName":"Christophe NACIRI","PartakerFunction":"Magicien"});
+db.Partakers.insert({"ActivityId":"1001","UserId":"cnaciri3","UserFullName":"Christophe NACIRI","PartakerFunction":"Téléologue"});
+db.Partakers.insert({"ActivityId":"1001","UserId":"jmdumi","UserFullName":"Jean Marie DUMIGRON","PartakerFunction":"Médecin"});
+db.Partakers.insert({"ActivityId":"1002","UserId":"jmdumi","UserFullName":"Jean Marie DUMIGRON","PartakerFunction":"Médecin"});
+db.Partakers.insert({"ActivityId":"1002","UserId":"hlehning","UserFullName":"Hervé Lehning","PartakerFunction":"Mathématicien"});
+db.Partakers.insert({"ActivityId":"1003","UserId":"aredon","UserFullName":"Alban Redondy","PartakerFunction":"Musicologue"});
+db.Partakers.insert({"ActivityId":"1003","UserId":"cnaciri","UserFullName":"Christophe Naciri","PartakerFunction":"Destinataire"});
+db.Partakers.insert({"ActivityId":"1005","UserId":"hlehning","UserFullName":"Hervé Lehning","PartakerFunction":"Mathématicien"});
+db.Partakers.insert({"ActivityId":"1011","UserId":"zzida","UserFullName":"Zinédine Zidana","PartakerFunction":"ZCREATOR"});
+db.Partakers.insert({"ActivityId":"1011","UserId":"tflis","UserFullName":"Taha Fliss Mohamed","PartakerFunction":"ZTITU"});
+db.Partakers.insert({"ActivityId":"1011","UserId":"cnaci","UserFullName":"Christophe Naciri","PartakerFunction":"ZSOLDTO"});
+db.Partakers.insert({"ActivityId":"1011","UserId":"fergu","UserFullName":"Ferguson","PartakerFunction":"ZRECEP"});
+db.Partakers.insert({"ActivityId":"1011","UserId":"rfauv","UserFullName":"Raymond Fauve","PartakerFunction":"ZDECIDE"});
+db.Partakers.insert({"ActivityId":"1011","UserId":"mbu","UserFullName":"Marie Bu","PartakerFunction":"ZDEMDEUR"});
+db.Partakers.insert({"ActivityId":"1011","UserId":"jabra","UserFullName":"J-J Abrahams","PartakerFunction":"ZOBSERVER"});
+db.Partakers.insert({"ActivityId":"1012","UserId":"cnaci","UserFullName":"Christophe Naciri","PartakerFunction":"ZCREATOR"});
+db.Partakers.insert({"ActivityId":"1012","UserId":"aboaf","UserFullName":"Amoako Boafo","PartakerFunction":"ZTITU"});
+db.Partakers.insert({"ActivityId":"1012","UserId":"skorn","UserFullName":"Steve Kornacki","PartakerFunction":"ZSOLDTO"});
+db.Partakers.insert({"ActivityId":"1012","UserId":"gning","UserFullName":"Guo Ningning","PartakerFunction":"ZRECEP"});

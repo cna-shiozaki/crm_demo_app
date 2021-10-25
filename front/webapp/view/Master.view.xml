@@ -1,0 +1,139 @@
+<mvc:View controllerName="cna.pater.controller.Master"
+	xmlns="sap.m"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f">
+
+	<semantic:SemanticPage id="masterPage"
+		preserveHeaderStateOnScroll="true"
+		toggleHeaderOnTitleClick="false">
+		<semantic:titleHeading>
+			<Title id="masterPageTitle"
+				text="{masterView>/title}"
+				busy="{masterView>/titleBusy}"
+				level="H2"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+
+
+			<Panel width="auto"
+				expandable="false"
+				class="sapUiNoContentPadding">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title text="Filtres"/>
+					</OverflowToolbar>
+				</headerToolbar>
+
+
+				<content>
+					<FlexBox direction="Row" class="sapUiResponsiveContentPadding">
+
+						<FlexBox direction="Column" class="sapUiResponsiveContentPadding">
+							<Label text="Identifiant"
+								labelFor="input-id"/>
+							<Input id="input-id"
+								value="{masterView>/filters/id}"
+								submit=".onSearch"/>
+						</FlexBox>
+
+						<FlexBox direction="Column" class="sapUiResponsiveContentPadding">
+							<Label text="Statut"
+								labelFor="input-id"/>
+							<ComboBox selectedKey="{masterView>/filters/status}">
+								<items>
+									<core:Item key=""
+										text=""/>
+									<core:Item key="AFAI"
+										text="À Faire"/>
+									<core:Item key="ENCO"
+										text="En Cours"/>
+									<core:Item key="FAIT"
+										text="Fait"/>
+									<core:Item key="ANNU"
+										text="Annulé"/>
+								</items>
+							</ComboBox>
+						</FlexBox>
+
+						<FlexBox class="sapUiResponsiveContentPadding">
+							<Button text="Rechercher" class="sapUiSmallMarginTopBottom"
+								press=".onSearch" />
+
+						</FlexBox>
+					</FlexBox>
+
+				</content>
+
+			</Panel>
+
+	
+		</semantic:headerContent>
+		<semantic:content>
+			<!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
+			<List id="list"
+				width="auto"
+				class="sapFDynamicPageAlignContent"
+				items="{
+					path: '/Activities',
+					sorter: {
+						path: '_id',
+						descending: true
+					},
+					groupHeaderFactory: '.createGroupHeader'
+				}"
+				busyIndicatorDelay="{masterView>/delay}"
+				noDataText="{masterView>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished"
+				selectionChange=".onSelectionChange">
+				<infoToolbar>
+					<Toolbar active="true"
+						id="filterBar"
+						visible="{masterView>/isFilterBarVisible}"
+						press=".onOpenViewSettings">
+						<Title id="filterBarLabel"
+							text="{masterView>/filterBarLabel}"
+							level="H3"/>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<OverflowToolbar>
+						<Button id="createButton"
+							text="Créer une nouvelle activité"
+							press=".onCreateNewActivity"
+							icon="sap-icon://create-form"
+							tooltip="Créer"
+							type="Transparent"/>
+						<ToolbarSpacer/>
+						<Button id="sortButton"
+							press=".onOpenViewSettings"
+							icon="sap-icon://sort"
+							type="Transparent"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem type="Navigation"
+						press=".onSelectionChange"
+						title="{Description}">
+						<firstStatus>
+							<ObjectStatus text="{
+								path: 'Statut',
+								formatter: '.formatter.statusText'
+							}"
+								state="{
+								path: 'Statut',
+								formatter: '.formatter.statusState'
+							}" />
+						</firstStatus>
+						<ObjectAttribute text="{Id}" />
+
+					</ObjectListItem>
+				</items>
+			</List>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>

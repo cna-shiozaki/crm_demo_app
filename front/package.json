@@ -1,0 +1,30 @@
+{
+  "name": "manage_activity",
+  "private": true,
+  "version": "1.0.0",
+  "author": "C.NACIRI",
+  "description": "UI5 App - Manage Activities",
+  "scripts": {
+    "start": "ui5 serve ",
+    "lint": "eslint webapp",
+    "build": "rimraf dist && ui5 build --a"
+  },
+  "dependencies": {
+    "@openui5/sap.m": "^1",
+    "@openui5/sap.f": "^1",
+    "@openui5/sap.ui.core": "^1",
+    "@openui5/sap.ui.layout": "^1",
+    "@openui5/themelib_sap_fiori_3": "^1"
+  },
+  "devDependencies": {
+    "@ui5/cli": "2.10.3",
+    "eslint": "^4.19.1",
+    "rimraf": "^2.6.2",
+    "ui5-middleware-simpleproxy": "*"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-middleware-simpleproxy"
+    ]
+  }
+}

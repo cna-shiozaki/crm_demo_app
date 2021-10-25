@@ -1,0 +1,59 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" >
+	
+	<l:VerticalLayout 
+		id="editContainer" 
+		width="100%" 
+		class="sapUiNoContentPadding">
+		
+		<f:Form 
+			id="headerFormEdit" 
+			editable="true"> 
+		
+			<f:layout> 
+				<f:ResponsiveGridLayout 
+					labelSpanXL="3" 
+					labelSpanL="3" 
+					labelSpanM="3" 
+					labelSpanS="12" 
+					adjustLabelSpan="false" 
+					emptySpanXL="4" 
+					emptySpanL="4" 
+					emptySpanM="4" 
+					emptySpanS="0" 
+					columnsXL="1" 
+					columnsL="1" 
+					columnsM="1" 
+					singleContainerFullSize="false" /> 
+			</f:layout> 
+						
+			<f:formContainers> 
+				<f:FormContainer> 
+					<f:formElements> 
+					<f:FormElement label="Désignation"> 
+							<f:fields> 
+								<Input value="{Description}" /> 
+							</f:fields> 
+						</f:FormElement> 						
+						<f:FormElement label="Motif"> 
+							<f:fields> 
+								<Input value="{Motif}" /> 
+							</f:fields> 
+						</f:FormElement> 
+						<f:FormElement label="Crée Par"> 
+							<f:fields> 
+								<Input value="cnaciri" /> 
+							</f:fields> 
+						</f:FormElement> 							
+					</f:formElements> 
+				</f:FormContainer> 
+			</f:formContainers> 
+		</f:Form> 			
+		
+	</l:VerticalLayout>
+		
+</core:FragmentDefinition>

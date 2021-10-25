@@ -1,0 +1,140 @@
+<mvc:View controllerName="cna.pater.controller.Detail.Create"
+	xmlns="sap.m"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+
+
+	<Panel width="100%">
+		<HBox renderType="Bare">
+			<!--A GAUCHE -->
+			<f:Form width="70%"
+				id="headerFormCreate"
+				editable="true">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3"
+						labelSpanL="3"
+						labelSpanM="3"
+						labelSpanS="12"
+						adjustLabelSpan="false"
+						emptySpanXL="4"
+						emptySpanL="4"
+						emptySpanM="4"
+						emptySpanS="0"
+						columnsXL="1"
+						columnsL="1"
+						columnsM="1"
+						singleContainerFullSize="true" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+
+							<f:FormElement label="Type">
+								<f:fields>
+									<Select selectedKey="{crea>/Type}">
+										<core:ListItem key="Appel Sortant"
+											text="Appel Sortant"
+											icon="sap-icon://outgoing-call" />
+										<core:ListItem key="Email Sortant"
+											text="Email Sortant"
+											icon="sap-icon://email"/>
+										<core:ListItem key="Tâche à Faire"
+											text="Tâche à Faire"
+											icon="sap-icon://activity-2"/>
+										<core:ListItem key="Visite"
+											text="Visite"
+											icon="sap-icon://visits"/>
+										<core:ListItem key="Investigation"
+											text="Investigation"
+											icon="sap-icon://bbyd-active-sales"/>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+
+
+							<f:FormElement label="Désignation">
+								<f:fields>
+									<Input value="{crea>/Description}" />
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Motif">
+								<f:fields>
+									<Input value="{crea>/Motif}" />
+								</f:fields>
+							</f:FormElement>
+
+							<f:FormElement label="Note">
+								<f:fields>
+									<TextArea value="{crea>/Note}"
+										width="100%"
+										rows="4"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+
+			<!--A DROITE -->
+			<Table id="intervenantsCreaTable"
+				items="{crea>/Partakers/}">
+				<columns>
+					<Column hAlign="Center">
+						<Text text="{i18n>detailLineItemTableIDColumn}"/>
+					</Column>
+					<Column minScreenWidth="Tablet"
+						demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Select selectedKey="{crea>partnerFunction}">
+								<core:ListItem key="ZCREATOR"
+									text="Créateur"
+									icon="sap-icon://doctor"></core:ListItem>
+								<core:ListItem key="ZTITU"
+									text="Titulaire"
+									icon="sap-icon://employee-pane"></core:ListItem>
+								<core:ListItem key="ZSOLDTO"
+									text="Payeur"
+									icon="sap-icon://money-bills"></core:ListItem>
+								<core:ListItem key="ZRECEP"
+									text="Réceptionnaire"
+									icon="sap-icon://customer-and-supplier"></core:ListItem>
+								<core:ListItem key="ZDECIDE"
+									text="Décideur"
+									icon="sap-icon://customer-financial-fact-sheet"></core:ListItem>
+								<core:ListItem key="ZDEMDEUR"
+									text="Demandeur"
+									icon="sap-icon://activity-individual"></core:ListItem>
+								<core:ListItem key="ZOBSERVER"
+									text="Observateur"
+									icon="sap-icon://show"></core:ListItem>									
+							</Select>
+							<Input value="{crea>partnerFullName}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</HBox>
+
+		<Toolbar>
+			<ToolbarSpacer/>
+			<Button text="Sauvegarder"
+				press=".onSavePress"
+				type="Accept"/>
+			<Button text="Annuler"
+				press=".onCancelPress"
+				type="Reject"/>
+		</Toolbar>
+	</Panel>
+
+
+</mvc:View>

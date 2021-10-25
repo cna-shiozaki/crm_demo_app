@@ -1,0 +1,19 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" >
+	
+	<l:VerticalLayout 
+		id="editContainer" 
+		width="100%" 
+		class="sapUiNoContentPadding">
+		
+		<TextArea 
+			value="{Note}"
+			width="100%"
+			rows="4"/>
+	
+	</l:VerticalLayout>
+</core:FragmentDefinition> 

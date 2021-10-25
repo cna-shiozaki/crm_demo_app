@@ -1,0 +1,141 @@
+<mvc:View controllerName="cna.pater.controller.Detail.Detail"
+	xmlns="sap.m"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+	<semantic:SemanticPage id="detailPage"
+		busy="{detailView>/busy}"
+		showFooter="{UIConfig>/showFooter}"
+		busyIndicatorDelay="{detailView>/delay}">
+
+		<!-- Title-->
+		<semantic:titleHeading>
+			<Title text="{Description}"
+				level="H2"/>
+		</semantic:titleHeading>
+
+		<!-- TitleExpanded content-->
+		<semantic:titleSnappedContent>
+			<Text text="{Id}"/>
+		</semantic:titleSnappedContent>
+
+		<!-- TitleSnapped content-->
+		<semantic:titleExpandedContent>
+			<Text text="Identifiant : {Id}"/>
+		</semantic:titleExpandedContent>
+
+		<semantic:headerContent>
+
+
+			<FlexBox height="100px"
+				fitContainer="true"
+				alignItems="Center"
+				justifyContent="SpaceBetween">
+				<ObjectHeader icon="{
+								path: 'Type',
+								formatter: '.formatter.typeIcon'
+							}"
+					imageShape="Circle"
+					title="{Type}">
+
+					<ObjectAttribute title="Clé technique"
+						text="{_id}" />
+					<ObjectAttribute text="Lien vers portail"
+						active="true"
+						press="handleSAPLinkPressed" />
+				</ObjectHeader>
+				<ObjectStatus class="sapMObjectStatusLarge"
+					
+					text="{
+								path: 'Statut',
+								formatter: '.formatter.statusText'
+							}"
+					state="{
+								path: 'Statut',
+								formatter: '.formatter.statusState'
+							}"
+					icon="{
+								path: 'Statut',
+								formatter: '.formatter.statusIcon'
+							}" />
+			</FlexBox>
+
+
+		</semantic:headerContent>
+
+		<semantic:content>
+
+			<VBox class="sapUiSmallMargin">
+
+				<!-- Nested view : header of the document -->
+				<mvc:XMLView id="headerView"
+					viewName="cna.pater.view.Detail.Header"
+					async="true"/>
+
+				<!-- Nested view : note of the document -->
+				<mvc:XMLView id="noteView"
+					viewName="cna.pater.view.Detail.Note"
+					async="true"/>
+
+				<!-- Nested view : intervenants of the document -->
+				<mvc:XMLView id="intervenantsView"
+					viewName="cna.pater.view.Detail.Intervenants"
+					async="true"/>
+			</VBox>
+
+		</semantic:content>
+
+
+		<!--Semantic ShareMenu Buttons-->
+
+		<semantic:deleteAction>
+			<semantic:DeleteAction id="delete"
+				visible="{= !${UIConfig>/editMode} }"
+				press=".onDeletePress"/>
+		</semantic:deleteAction>
+
+		<semantic:positiveAction>
+			<semantic:PositiveAction id="save"
+				visible="{UIConfig>/editMode}"
+				text="Sauvegarder"
+				press=".onSavePress"/>
+		</semantic:positiveAction>
+
+		<semantic:negativeAction>
+			<semantic:NegativeAction id="cancel"
+				visible="{UIConfig>/editMode}"
+				text="Annuler"
+				press=".onCancelPress"/>
+		</semantic:negativeAction>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail"
+				press=".onSendEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:closeAction>
+			<semantic:CloseAction id="closeColumn"
+				press=".onCloseDetailPress"/>
+		</semantic:closeAction>
+
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction id="enterFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+				press=".toggleFullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction id="exitFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+				press=".toggleFullScreen"/>
+		</semantic:exitFullScreenAction>
+
+		<semantic:draftIndicator>
+			<DraftIndicator id="draftIndicator" />
+		</semantic:draftIndicator>
+
+	</semantic:SemanticPage>
+
+</mvc:View>

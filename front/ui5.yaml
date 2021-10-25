@@ -1,0 +1,26 @@
+specVersion: "2.3"
+type: application
+metadata:
+  name: cna.manage.activities
+framework:
+  name: OpenUI5
+  version: "1.89.1"
+  libraries:
+    - name: sap.ui.core
+    - name: sap.m
+    - name: sap.f
+    - name: themelib_sap_fiori_3
+server:
+  settings:
+    httpPort: 1337
+    httpsPort: 1443
+  customMiddleware:
+  - name: ui5-middleware-simpleproxy
+    afterMiddleware: compression
+    mountPath: /ActivityService
+    configuration:
+      baseUri: "http://localhost:5000/ActivityService/"
+      username: myUsername
+      password: myPassword
+      httpHeaders:
+        Any-Header: AnyHeader   

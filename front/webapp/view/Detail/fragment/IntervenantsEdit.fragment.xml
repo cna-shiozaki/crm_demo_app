@@ -1,0 +1,60 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" >
+	
+	<l:VerticalLayout 
+		id="editContainer" 
+		width="100%" 
+		class="sapUiNoContentPadding">
+		
+		<Table id="intervenantsEditTable"
+	       mode="MultiSelect"
+	       items="{EditIntervenants>/}"
+	       fixedLayout="false"
+	       alternateRowColors="false">
+			<headerToolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button 
+							press=".onAddIntervenantButtonPress" 
+							type="Transparent" 
+							icon="sap-icon://add" 
+							tooltip="{i18n>AddNewIntervenant}"/>						
+					<Button icon="sap-icon://delete"
+							press=".onDeleteIntervenantButtonPress" 
+							type="Transparent"
+							tooltip="{i18n>DeleteSelectedIntervenants}"/>
+				</OverflowToolbar>
+			</headerToolbar>	
+			<columns>
+				<Column hAlign="Begin" id="colIntervenantIdentite">
+					<Text text="Fonction" maxLines="1"/>
+				</Column>	
+				<Column hAlign="Begin" id="colIntervenantDescFctPart">
+					<Text text="Partenaire" maxLines="1"/>
+				</Column>			
+			</columns>
+			
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Select selectedKey="{EditIntervenants>PartnerFct}">
+							<core:ListItem key="ZCREA001" text="Créateur" icon="sap-icon://doctor"></core:ListItem> 
+							<core:ListItem key="ZRESP001" text="Titulaire" icon="sap-icon://account"></core:ListItem> 
+							<core:ListItem key="ZENTCREA" text="Entité Créatrice" icon="sap-icon://crm-sales"></core:ListItem>
+							<core:ListItem key="ZENTRES1" text="Entité Responsable" icon="sap-icon://customer-and-supplier"></core:ListItem> 
+							<core:ListItem key="ZDECACT" text="Décideur" icon="sap-icon://customer-financial-fact-sheet"></core:ListItem> 
+							<core:ListItem key="ZDEMDEUR" text="Demandeur" icon="sap-icon://activity-individual"></core:ListItem> 
+						</Select>
+						<Input value="{EditIntervenants>PartnerId}"/>
+					</cells>			
+				</ColumnListItem>
+			</items>	
+			
+		</Table>	
+			
+	</l:VerticalLayout>
+</core:FragmentDefinition> 		

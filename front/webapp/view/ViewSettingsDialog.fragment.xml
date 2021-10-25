@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+
+	<ViewSettingsDialog
+		id="viewSettingsDialog"
+		confirm=".onConfirmViewSettingsDialog">
+		<sortItems>
+			<ViewSettingsItem
+				text="Identifiant"
+				key="Id"
+				selected="true"/>
+			<ViewSettingsItem
+				text="Statut"
+				key="Statut"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
