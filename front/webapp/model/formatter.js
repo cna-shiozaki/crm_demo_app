@@ -95,6 +95,8 @@ sap.ui.define(["sap/ui/model/resource/ResourceModel"], function (ResourceModel) 
 					return "Demandeur";
 				case "ZOBSERVER":
 					return "Observateur";
+				case "ZAGENT":
+					return "Agent Administratif";
 				default:
 					return "Autre";
 
@@ -117,6 +119,8 @@ sap.ui.define(["sap/ui/model/resource/ResourceModel"], function (ResourceModel) 
 					return "sap-icon://activity-individual";
 				case "ZOBSERVER":
 					return "sap-icon://show";
+				case "ZAGENT":
+					return "sap-icon://cancel-maintenance";
 				default:
 					return "sap-icon://question-mark";
 

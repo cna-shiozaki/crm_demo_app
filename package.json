@@ -1,12 +1,15 @@
 {
-    "name": "projectdefi",
+    "name": "crm_demo_app",
     "version": "1.0.0",
     "description": "A FullStack app for demo purpose (OpenUI5/NodeJS, with MongoDB persistence)",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "npm-run-all --parallel start-front start-services",
         "start-front": "cd front && npm run start",
-        "start-services": "cd back && npm run start"
+        "start-services": "cd back && npm run start",
+        "postinstall": "npm run postinstall-front && npm run postinstall-back",
+        "postinstall-front": "cd front && npm install",
+        "postinstall-back": "cd back && npm install"
     },
     "author": "Christophe NACIRI",
     "license": "ISC",

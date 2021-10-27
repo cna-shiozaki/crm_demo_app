@@ -46,7 +46,7 @@
 						</f:FormElement> 
 						<f:FormElement label="Crée Par"> 
 							<f:fields> 
-								<Input value="cnaciri" /> 
+								<Text text="cnaciri" /> 
 							</f:fields> 
 						</f:FormElement> 							
 					</f:formElements> 
